@@ -1,36 +1,8 @@
-import speech_recognition as sr
 from googletrans import Translator, LANGUAGES
 from gtts import gTTS
 import os
 import threading
 import time
-
-
-def recognize_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("🎙️ Speak now...")
-        recognizer.adjust_for_ambient_noise(source, duration=1)
-
-        try:
-            audio = recognizer.listen(source, timeout=5, phrase_time_limit=7)
-            print("✅ Captured audio. Recognizing...")
-        except sr.WaitTimeoutError:
-            print("❌ No speech detected within timeout.")
-            return None
-
-    try:
-        text = recognizer.recognize_google(audio)
-        print(f"🗣️ Recognized text: {text}")
-        return text
-    except sr.UnknownValueError:
-        print("❌ Could not understand the speech.")
-        return None
-    except sr.RequestError as e:
-        print(f"❌ API error: {e}")
-        return None
-
-
 
 def detect_language(text):
     translator = Translator()
