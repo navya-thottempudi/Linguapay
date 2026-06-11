@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
 function CurrencyAnalysis() {
   const location = useLocation();
 
-  const selectedCurrencies = location.state?.currencies || [];
+  const selectedCurrencies = useMemo(
+  () => location.state?.currencies || [],
+  [location.state?.currencies]
+);
 
   const [comparisonData, setComparisonData] = useState([]);
 

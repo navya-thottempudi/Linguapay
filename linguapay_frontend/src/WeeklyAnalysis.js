@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import {
   LineChart,
@@ -127,7 +127,10 @@ const modeOptions = [
 
 const WeeklyAnalysis = () => {
   const location = useLocation();
-  const currencies = location.state?.currencies || [];
+  const currencies = useMemo(
+  () => location.state?.currencies || [],
+  [location.state?.currencies]
+);
 
   const [chartData, setChartData] = useState([]);
   const [summaryText, setSummaryText] = useState("");
