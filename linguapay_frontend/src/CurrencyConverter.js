@@ -37,7 +37,7 @@ function CurrencyConverter() {
   const navigate = useNavigate();
 
   const handleConvert = async () => {
-    const res = await fetch('http://localhost:5000/run-script', {
+    const res = await fetch('https://linguapay.onrender.com/run-script', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
