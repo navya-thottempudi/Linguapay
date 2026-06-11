@@ -137,7 +137,7 @@ const WeeklyAnalysis = () => {
   useEffect(() => {
     const fetchWeeklyRates = async () => {
       try {
-        const res = await fetch("http://localhost:5000/weekly-analysis", {
+        const res = await fetch("https://linguapay.onrender.com/weekly-analysis", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ currencies }),
@@ -162,7 +162,7 @@ const WeeklyAnalysis = () => {
 
   const translateText = async (text) => {
     try {
-      const res = await fetch("http://localhost:5000/run-script", {
+      const res = await fetch("https://linguapay.onrender.com/run-script", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -189,7 +189,7 @@ const WeeklyAnalysis = () => {
   if (mode === "voice") {
     fadeOutHomeSound(); // 🔇 Fade out background music
 
-    const response = await fetch("http://localhost:5000/speak", {
+    const response = await fetch("https://linguapay.onrender.com/speak", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

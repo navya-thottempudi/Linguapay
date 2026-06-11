@@ -117,7 +117,7 @@ function LanguageConverter() {
       return;
     }
 
-    const res = await fetch('http://localhost:5000/run-script', {
+    const res = await fetch('https://linguapay.onrender.com/run-script', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ choice: 'translator', text, target_language: toLanguage }),
@@ -133,7 +133,7 @@ function LanguageConverter() {
 
    fadeOutHomeSound(); // 🔇
 
-   const res = await fetch('http://localhost:5000/speak', {
+   const res = await fetch('https://linguapay.onrender.com/speak', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
      body: JSON.stringify({ text: translated, language: toLanguage }),
